@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="Tipo_ProductoViewDlg" widgetVar="Tipo_ProductoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTipo_ProductoTitle}">
+            <h:form id="Tipo_ProductoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipo_ProductoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTipo_ProductoLabel_tipoProducto}"/>
+                        <h:outputText value="#{tipo_ProductoController.selected.tipoProducto}" title="#{bundle.ViewTipo_ProductoTitle_tipoProducto}"/>
+                        <h:outputText value="#{bundle.ViewTipo_ProductoLabel_id}"/>
+                        <h:outputText value="#{tipo_ProductoController.selected.id}" title="#{bundle.ViewTipo_ProductoTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="Tipo_ProductoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

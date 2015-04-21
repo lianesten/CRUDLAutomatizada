@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="Tipo_ProductoEditDlg" widgetVar="Tipo_ProductoEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTipo_ProductoTitle}">
+            <h:form id="Tipo_ProductoEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tipo_ProductoController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTipo_ProductoLabel_tipoProducto}" for="tipoProducto" />
+                        <p:inputText id="tipoProducto" value="#{tipo_ProductoController.selected.tipoProducto}" title="#{bundle.EditTipo_ProductoTitle_tipoProducto}" />
+                        <p:outputLabel value="#{bundle.EditTipo_ProductoLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{tipo_ProductoController.selected.id}" title="#{bundle.EditTipo_ProductoTitle_id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tipo_ProductoController.update}" value="#{bundle.Save}" update="display,:Tipo_ProductoListForm:datalist,:growl" oncomplete="handleSubmit(args, 'Tipo_ProductoEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="Tipo_ProductoEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
