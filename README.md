@@ -10,9 +10,6 @@
   <li>Base de datos</li>
 </ul>
 
-Los frameworks utilizados en cada capa son los siguientes:
-
-
 >Las herramientas utilizadas Para cada capa son:
 
 <ul>
